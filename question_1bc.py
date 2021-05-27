@@ -2,7 +2,7 @@
 # Date: 5/26/2021
 # Question 1.b. - 1.c.
 
-import pandas
+import pandas as pd
 
 
 # Question 1.b.
@@ -14,7 +14,7 @@ def upperLower(name_table):
 	"""
 
 	# create a deep copy of the name_table 
-	new_names = pandas.DataFrame.copy(name_table)
+	new_names = pd.DataFrame.copy(name_table)
 
 
 	# iterate through all rows in new_names, changing names that
@@ -43,7 +43,7 @@ def markAverages(name_table, mark_table):
 	"""
 
 	# first, create a merged dataframe with both names and marks of students
-	students = pandas.merge(name_table, mark_table, on="StudentID")
+	students = pd.merge(name_table, mark_table, on="StudentID")
 
 
 	# storage for the averages for uppercase and lowercase names
@@ -83,7 +83,7 @@ def markAverages(name_table, mark_table):
 		"Uppercase_Average": [upper_average]
 	}
 
-	averages = pandas.DataFrame(averages)
+	averages = pd.DataFrame(averages)
 
 
 	# return the dataframe of averages

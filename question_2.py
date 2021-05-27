@@ -2,7 +2,7 @@
 # Date: 5/26/2021
 # Question 2
 
-import pandas
+import pandas as pd
 
 
 # Part 1
@@ -15,7 +15,7 @@ def dataTasks():
 	"""
 
 	# first, read the csv file
-	wh_salaries = pandas.read_csv("https://raw.githubusercontent.com/helloworlddata/white-house-salaries/master/data/converted/2017.csv")
+	wh_salaries = pd.read_csv("https://raw.githubusercontent.com/helloworlddata/white-house-salaries/master/data/converted/2017.csv")
 
 
 	# fix errors in the csv file - some enties for position title are mistakenly
@@ -67,7 +67,7 @@ def describeData():
 	"""
 
 	# first, read the csv file and sort the second column in ascending order
-	num_data = pandas.read_csv("https://raw.githubusercontent.com/fractalbass/data_engineer/master/data.csv", header=None)	
+	num_data = pd.read_csv("https://raw.githubusercontent.com/fractalbass/data_engineer/master/data.csv", header=None)	
 	num_data.sort_values(num_data.columns[1], inplace = True)
 
 
@@ -90,7 +90,7 @@ def describeData():
 
 
 	# return the information as a data frame
-	desc_stats = pandas.DataFrame(desc_stats)
+	desc_stats = pd.DataFrame(desc_stats)
 	return desc_stats
 
 
