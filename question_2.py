@@ -3,6 +3,7 @@
 # Question 2
 
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 # Part 1
@@ -87,6 +88,13 @@ def describeData():
 
 	# finally, calculate the standard deviation
 	desc_stats["std_deviation"] = [num_data[1].std()]
+
+	# create a histogram of the data
+	num_data[1].plot.hist()
+	plt.xlabel("Num Data")
+	plt.ylabel("Frequency")
+	plt.title("Data Distribution of data.csv")
+	# plt.show()
 
 
 	# return the information as a data frame
