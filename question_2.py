@@ -14,7 +14,7 @@ def dataTasks():
 	exported as a new csv file called "wh_salaries.csv".
 	"""
 
-	# first, get the csv file
+	# first, read the csv file
 	wh_salaries = pandas.read_csv("https://raw.githubusercontent.com/helloworlddata/white-house-salaries/master/data/converted/2017.csv")
 
 
@@ -53,6 +53,46 @@ def dataTasks():
 	# finally, export the new csv file as "wh_salaries.csv"
 	wh_salaries.to_csv('wh_salaries.csv')
 
-
 # perform the data preparation
-dataTasks()
+# dataTasks()
+
+
+# Part 2
+def describeData():
+	"""
+	Using a csv file of numerical values, this function calculates
+	the minimum, maximum, median, and mean (average) of the data, and then 
+	calculates the standard deviation of the data. Returns a data frame
+	of the calculated values.
+	"""
+
+	# first, read the csv file and sort the second column in ascending order
+	num_data = pandas.read_csv("https://raw.githubusercontent.com/fractalbass/data_engineer/master/data.csv", header=None)	
+	num_data.sort_values(num_data.columns[1], inplace = True)
+
+
+	# an empty dictionary to store the descriptive statistics for the given data
+	desc_stats = {}
+
+
+	# get the minimum and maximum and add them to the dictionary
+	desc_stats["minimum"] = [num_data[1].min()]
+	desc_stats["maximum"] = [num_data[1].max()]
+
+	# calculate the median and adds it to the dictionary
+	desc_stats["median"] = [(num_data.iloc[len(num_data.index) // 2][1] + num_data.iloc[len(num_data.index) // 2 + 1][1]) / 2]
+
+	# calculate and add the mean to the dictionary
+	desc_stats["mean"] = [num_data[1].mean()]
+
+	# finally, calculate the standard deviation
+	desc_stats["std_deviation"] = [num_data[1].std()]
+
+
+	# return the information as a data frame
+	desc_stats = pandas.DataFrame(desc_stats)
+	return desc_stats
+
+
+# describe the data
+# print(describeData())
